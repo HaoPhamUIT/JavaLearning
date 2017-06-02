@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="postgres@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.2">
+    <root id="1"/>
+    <database id="2" parent="1" name="postgres">
+      <ObjectId>12413</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-05-25.14:31:03.460</IntrospectionTimestamp>
+      <IntrospectionStateNumber>664</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11816</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11817</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12121</ObjectId>
+    </schema>
+    <schema id="9" parent="2" name="hao_test">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <table id="10" parent="3" name="users">
+      <ObjectId>16385</ObjectId>
+      <StateNumber>664</StateNumber>
+    </table>
+    <column id="11" parent="10" name="userid">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>664</StateNumber>
+    </column>
+    <column id="12" parent="10" name="username">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>664</StateNumber>
+    </column>
+    <column id="13" parent="10" name="useremail">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>664</StateNumber>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+    </column>
+    <column id="14" parent="10" name="address">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>664</StateNumber>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+    </column>
+    <index id="15" parent="10" name="users_pkey">
+      <ObjectId>16390</ObjectId>
+      <ColNames>userid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="16" parent="10" name="users_pkey">
+      <ObjectId>16391</ObjectId>
+      <ColNames>userid</ColNames>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
