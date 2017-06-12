@@ -18,7 +18,8 @@ public class JsonArraytoList {
         Gson gson = new Gson();
         try (Reader reader = new FileReader("liststaff.json")) {
             // Convert JSON to Java StaffObject
-            List<Staff> Lststaff = gson.fromJson(reader,new TypeToken<List<StaffObject.Staff>>(){}.getType());
+            List<Staff> Lststaff = gson.fromJson(reader, new TypeToken<List<StaffObject.Staff>>() {
+            }.getType());
             Lststaff.forEach(x -> System.out.println(x));
 
         } catch (IOException e) {

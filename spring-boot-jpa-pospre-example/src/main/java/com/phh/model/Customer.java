@@ -11,7 +11,6 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(sequenceName = "customer_seq", initialValue = 1, allocationSize = 1, name = "CUST_SEQ")
     Long id;
-
     String name;
     String email;
 
@@ -23,9 +22,6 @@ public class Customer {
         this.name = name;
         this.email = email;
         this.date = date;
-    }
-
-    public Customer() {
     }
 
     @Override

@@ -19,8 +19,9 @@ public class JsonToMap {
 
         try (Reader reader = new FileReader("staff.json")) {
             // Convert JSON to Java StaffObject
-            Map<String, Object> map = gson.fromJson(reader,new TypeToken<Map<String, Object>>(){}.getType());
-            map.forEach((x,y) -> System.out.println("key : " + x + " , value : " + y));
+            Map<String, Object> map = gson.fromJson(reader, new TypeToken<Map<String, Object>>() {
+            }.getType());
+            map.forEach((x, y) -> System.out.println("key : " + x + " , value : " + y));
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -20,8 +20,8 @@ public class JsonToObject {
         try {
             reader = new FileReader("user.json");
             // Convert JSON string from file to Object
-           User user = mapper.readValue(reader, User.class);
-           System.out.println(user.getName());
+            User user = mapper.readValue(reader, User.class);
+            System.out.println(user.getName());
             System.out.println(user);
 
             // Convert JSON string to Object

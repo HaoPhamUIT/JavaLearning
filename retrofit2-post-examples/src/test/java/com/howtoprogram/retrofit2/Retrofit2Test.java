@@ -12,12 +12,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
-
 public class Retrofit2Test {
 
     @Test
-    public void testPostObject() throws IOException {
+    public void test_post_object() throws IOException {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -43,13 +41,13 @@ public class Retrofit2Test {
     }
 
     @Test
-    public  void testTodoObject() throws IOException{
+    public  void test_todo_object() throws IOException{
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        RetrofitTodo resclient= retrofit.create(RetrofitTodo.class);
-        Call<Todo> call = resclient.getTodo();
+        RetrofitTodo resClient= retrofit.create(RetrofitTodo.class);
+        Call<Todo> call = resClient.getTodo();
         Response<Todo> response = call.execute();
         Todo resObject = response.body();
         System.out.println("ID: "+resObject.getId());
@@ -58,7 +56,7 @@ public class Retrofit2Test {
         System.out.println("Complete: "+resObject.getCompleted());
     }
     @Test
-    public  void testPostsTodoObject() throws IOException, InterruptedException {
+    public  void test_posts_todo_object() throws IOException, InterruptedException {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -98,7 +96,7 @@ public class Retrofit2Test {
         System.out.println("Complete end after 5s ");
     }
     @Test
-    public  void testListTodoObject() throws IOException{
+    public  void test_list_todo_object() throws IOException{
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
