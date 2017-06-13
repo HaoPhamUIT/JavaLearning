@@ -31,7 +31,9 @@ public class PostgreSqlJdbc {
         //pg.CreateTable();
         //pg.InsertDataBase();
         pg.getConnection();
-        //pg.SelectTable();
+
+        pg.SelectTable();
+        pg.getConnection();
         pg.InsertDataBase();
         pg.SelectTable();
 
@@ -57,7 +59,7 @@ public class PostgreSqlJdbc {
         try {
             stmt = db.createStatement();
             String sql = "CREATE TABLE SHOTBOX " +
-                    "(ID INT PRIMARY KEY     NOT NULL," +
+                    "(ID LONG PRIMARY KEY     NOT NULL," +
                     " USERNAME           TEXT    NOT NULL, " +
                     " CONTENT            TEXT     NOT NULL, " +
                     " DATETIME_TEXT         TEXT NOT NULL)";
