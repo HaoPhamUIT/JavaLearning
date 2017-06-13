@@ -1,4 +1,4 @@
-package Object;
+package object;
 
 /**
  * Created by hao-pham on 6/12/17.
