@@ -1,7 +1,9 @@
-package Object; /**
+package Jdbc; /**
  * Created by hao-pham on 6/12/17.
  */
 
+
+import object.ShotBox;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -24,15 +26,15 @@ public class PostgreSqlJdbc {
        // pg.DataBaseConnection();
         //pg.CreateTable();
         //pg.InsertDataBase();
-        pg.DataBaseConnection();
-        pg.SelectTable();
-        pg.DataBaseConnection();
-        pg.InsertDataBase();
-        pg.SelectTable();
+        pg.dataBaseConnection();
+        pg.selectTable();
+        pg.dataBaseConnection();
+        pg.insertDataBase();
+        pg.selectTable();
 
     }
 
-    public void DataBaseConnection(){
+    public void dataBaseConnection(){
         try {
             Class.forName("org.postgresql.Driver"); //load driver
             db = getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=public",
@@ -45,7 +47,7 @@ public class PostgreSqlJdbc {
             }
         System.out.println("Opened database successfully\n");
     }
-    public void CreateTable(){
+    public void createTable(){
         try {
             stmt = db.createStatement();
             String sql = "CREATE TABLE SHOTBOX " +
@@ -64,7 +66,7 @@ public class PostgreSqlJdbc {
         }
         System.out.println("Table created successfully\n");
     }
-    public void InsertDataBase(){
+    public void insertDataBase(){
         try {
             Scanner s = new Scanner(System.in);
             stmt = db.createStatement();
@@ -72,7 +74,7 @@ public class PostgreSqlJdbc {
             sb.setContent(s.nextLine());
 
             Date Time = new Date();
-            SimpleDateFormat setTime = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy ");
+            SimpleDateFormat setTime = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
             String showTime = setTime.format(Time.getTime());
             sb.setId(Time.getTime());
             String sql = "INSERT INTO SHOTBOX (ID,USERNAME,CONTENT,DATETIME_TEXT) " +
@@ -90,11 +92,11 @@ public class PostgreSqlJdbc {
         }
         System.out.println("Insert database successfully");
     }
-    public void SelectTable(){
+    public void selectTable(){
         try {
             db.setAutoCommit(false);
             stmt = db.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM SHOTBOX WHERE USERNAME = 'Guest said:'");
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM SHOTBOX");
             while ( rs.next() ) {
                 long id = rs.getLong("ID");
                 String  name = rs.getString("USERNAME");
@@ -112,14 +114,13 @@ public class PostgreSqlJdbc {
         }
         System.out.println("\nSelected successfully\n");
     }
-    public void UpdateDataBase(){
+    public void updateDataBase(){
         try {
             Scanner s = new Scanner(System.in);
             stmt = db.createStatement();
             sb.setContent(s.nextLine());
             String sql = "UPDATE SHOTBOX " +
-                    "SET CONTENT ='"+sb.getContent()+"'" +
-                    "WHERE USERNAME = 'Guest said:'";
+                    "SET CONTENT ='"+sb.getContent()+"'";
             stmt.executeUpdate(sql);
         }
         catch (Exception e) {
