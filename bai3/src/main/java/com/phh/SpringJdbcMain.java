@@ -32,7 +32,7 @@ public class SpringJdbcMain {
         //dao.insertShotBox(sb1);
         List<ShotBox> shotBox2 = dao.selectShowBox();
         //Chuyen tat ca cac shotbox vao json file
-        JsonController js= new JsonController();
+        JsonController js = new JsonController();
         js.getOjectToJson(shotBox2);
 
         /*for (ShotBox sb : shotBox2) {

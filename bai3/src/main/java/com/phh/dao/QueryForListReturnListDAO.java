@@ -59,12 +59,21 @@ public class QueryForListReturnListDAO extends JdbcDaoSupport {
                 "VALUES ('" + sb.getId() + "','Guest','" + sb.getContent() + "','" + showTime + "');";
         return jdbcTemplate.update(query);
     }
-    public int insertShotBoxJson(ShotBox sb){
-        JsonController js= new JsonController();
-        sb=js.postJsonToObject(sb);
+
+    public int insertShotBoxJson(ShotBox sb) {
+        //JsonController js= new JsonController();
+        // sb=js.postJsonToObject(sb);
         String query = "INSERT INTO SHOTBOX (ID,USERNAME,CONTENT,DATETIME_TEXT) " +
-                "VALUES ('" + sb.getId() + "','"+ sb.getUserName()+"','" + sb.getContent() + "','" + sb.getDateTimeText()+ "');";
+                "VALUES ('" + sb.getId() + "','" + sb.getUserName() + "','" + sb.getContent() + "','" + sb.getDateTimeText() + "');";
         return jdbcTemplate.update(query);
     }
+
+    public int deleteShotBoxJson(long id) {
+        //JsonController js= new JsonController();
+        // sb=js.postJsonToObject(sb);
+        String query = "DELETE FROM SHOTBOX WHERE id=?";
+        return jdbcTemplate.update(query,id);
+    }
+
 
 }

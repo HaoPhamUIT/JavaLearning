@@ -17,27 +17,28 @@ import java.util.List;
  */
 public class JsonController {
 
-public  void getOjectToJson(List<ShotBox> sb) {
-    ObjectMapper mapper = new ObjectMapper();
-    try {
-        //Convert object to JSON string and save into file directly
-        mapper.writeValue(new File("shotbox.json"), sb);
+    public void getOjectToJson(List<ShotBox> sb) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            //Convert object to JSON string and save into file directly
+            mapper.writeValue(new File("shotbox.json"), sb);
 
-        //Convert object to JSON string
-        String jsonInString = mapper.writeValueAsString(sb);
-        System.out.println(jsonInString);
+            //Convert object to JSON string
+            String jsonInString = mapper.writeValueAsString(sb);
+            System.out.println(jsonInString);
 
-        //Convert object to JSON string and pretty print
-        jsonInString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sb);
-        System.out.println(jsonInString);
-    } catch (JsonGenerationException e) {
-        e.printStackTrace();
-    } catch (JsonMappingException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
+            //Convert object to JSON string and pretty print
+            jsonInString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sb);
+            System.out.println(jsonInString);
+        } catch (JsonGenerationException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
+
     public ShotBox postJsonToObject(ShotBox sb) {
         ObjectMapper mapper = new ObjectMapper();
 

@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public final class ShotBoxRowMapper implements RowMapper<ShotBox> {
     @Override
-    public ShotBox mapRow(ResultSet resultSet, int i)throws SQLException {
+    public ShotBox mapRow(ResultSet resultSet, int i) throws SQLException {
         ShotBox shotbox = new ShotBox();
         shotbox.setId(resultSet.getLong("id"));
         shotbox.setUserName(resultSet.getString("username"));
