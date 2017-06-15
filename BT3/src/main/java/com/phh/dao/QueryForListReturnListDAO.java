@@ -4,15 +4,17 @@ package com.phh.dao;
  * Created by hao-pham on 6/13/17.
  */
 
+import javax.sql.DataSource;
+
 import com.phh.model.ShotBox;
 import com.phh.model.ShotBoxRowMapper;
 import com.phh.objectjson.JsonController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -59,25 +61,12 @@ public class QueryForListReturnListDAO extends JdbcDaoSupport {
                 "VALUES ('" + sb.getId() + "','Guest','" + sb.getContent() + "','" + showTime + "');";
         return jdbcTemplate.update(query);
     }
-
-    public int insertShotBoxJson(ShotBox sb) {
-        //JsonController js= new JsonController();
-        // sb=js.postJsonToObject(sb);
-        Date Time = new Date();
-        SimpleDateFormat setTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
-        setTime.setTimeZone(TimeZone.getTimeZone("ICT"));
-        String showTime = setTime.format(Time.getTime());
+    public int insertShotBoxJson(ShotBox sb){
+        JsonController js= new JsonController();
+        sb=js.postJsonToObject(sb);
         String query = "INSERT INTO SHOTBOX (ID,USERNAME,CONTENT,DATETIME_TEXT) " +
-                "VALUES ('" + sb.getId() + "','" + sb.getUserName() + "','" + sb.getContent() + "','" + showTime + "');";
+                "VALUES ('" + sb.getId() + "','"+ sb.getUserName()+"','" + sb.getContent() + "','" + sb.getDateTimeText()+ "');";
         return jdbcTemplate.update(query);
     }
-
-    public int deleteShotBoxJson(long id) {
-        //JsonController js= new JsonController();
-        // sb=js.postJsonToObject(sb);
-        String query = "DELETE FROM SHOTBOX WHERE id=?";
-        return jdbcTemplate.update(query,id);
-    }
-
 
 }

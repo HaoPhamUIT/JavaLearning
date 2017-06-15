@@ -37,7 +37,7 @@ public class WelcomeController {
     }
 
     @RequestMapping(value = "/shouts", method = RequestMethod.POST)
-    public ResponseEntity<?> createUser(@RequestBody @Valid ShotBox sb) {
+    public ResponseEntity<?> createShotBox(@RequestBody @Valid ShotBox sb) {
         logger.info("Creating User : {}", sb);
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
         QueryForListReturnListDAO dao = context.getBean(QueryForListReturnListDAO.class);
@@ -46,7 +46,7 @@ public class WelcomeController {
     }
 
     @RequestMapping(value = "/shouts/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
+    public ResponseEntity<?> deleteShotBox(@PathVariable("id") long id) {
         logger.info("Fetching & Deleting User with id {}", id);
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
         QueryForListReturnListDAO dao = context.getBean(QueryForListReturnListDAO.class);

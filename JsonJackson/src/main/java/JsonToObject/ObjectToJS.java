@@ -1,6 +1,5 @@
-package ObjecToJson;
+package JsonToObject;
 
-import JsonToObject.User;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -46,7 +45,7 @@ public class ObjectToJS {
 
         User user = new User();
 
-        user.setName("phamhoanghao");
+        user.setName("phamhoanghhkjhkao");
         //user.setAge(33);
 
         List<String> msg = new ArrayList<>();

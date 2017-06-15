@@ -7,9 +7,9 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.List;
 
-@JsonIgnoreProperties({"age", "adress"})
+//@JsonIgnoreProperties({"age", "adress"})
 public class User {
-    @JsonProperty("Names")
+    //@JsonProperty("Names")
     private String name;
     //@JsonIgnore
     private int age;
