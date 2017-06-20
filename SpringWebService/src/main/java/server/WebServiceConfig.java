@@ -1,5 +1,6 @@
-package hello;
+package server;
 
+//import helloClient.QuoteClient;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -37,4 +38,21 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	public XsdSchema countriesSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
 	}
+//	@Bean
+//	public Jaxb2Marshaller marshaller() {
+//		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+//		// this package must match the package in the <generatePackage> specified in
+//		// pom.xml
+//		marshaller.setContextPath("hello.wsdl");
+//		return marshaller;
+//	}
+//
+//	@Bean
+//	public QuoteClient quoteClient(Jaxb2Marshaller marshaller) {
+//		QuoteClient client = new QuoteClient();
+//		client.setDefaultUri("http://www.webservicex.com/stockquote.asmx");
+//		client.setMarshaller(marshaller);
+//		client.setUnmarshaller(marshaller);
+//		return client;
+//	}
 }

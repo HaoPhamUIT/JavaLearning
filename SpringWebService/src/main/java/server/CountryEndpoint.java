@@ -1,4 +1,4 @@
-package hello;
+package server;
 
 import com.phh.gs_producing_web_service.GetTestCountryRequest;
 import com.phh.gs_producing_web_service.GetTestCountryResponse;
