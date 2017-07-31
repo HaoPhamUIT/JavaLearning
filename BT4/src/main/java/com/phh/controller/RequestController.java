@@ -54,7 +54,7 @@ public class RequestController {
         if (todo == null) {
             logger.error("User with id {} not found.", id);
             return new ResponseEntity(new TodoErrorType("User with id " + id
-                    + " not found"), HttpStatus.NOT_FOUND);
+                    + "a not found"), HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<Todo>(todo, HttpStatus.OK);
     }
